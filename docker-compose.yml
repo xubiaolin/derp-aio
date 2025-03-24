@@ -19,8 +19,4 @@ services:
     sysctls:
       - net.ipv4.ip_forward=1
       - net.ipv6.conf.all.forwarding=1
-    environment:
-      - DERP_DOMAIN=derp.markxu.vip
-      - DERP_ADDR=:18443
-      - DERP_STUN_PORT=19443
     restart: unless-stopped
