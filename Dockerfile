@@ -15,8 +15,6 @@ COPY --from=builder /go/bin/derper .
 COPY --from=builder /go/bin/tailscale .
 COPY --from=builder /go/bin/tailscaled .
 
-COPY start.sh .
-
 ENV DERP_DOMAIN your-hostname.com
 ENV DERP_CERT_MODE letsencrypt
 ENV DERP_CERT_DIR /app/certs
