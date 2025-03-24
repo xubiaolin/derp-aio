@@ -4,6 +4,7 @@ docker run -d \
 --name derp-aio \
 -v /dev/net/tun:/dev/net/tun \
 -v $(pwd)/tailscale_data:/var/lib/tailscale \
+-v $(pwd)/logs:/var/log \
 --cap-add=NET_ADMIN \
 --cap-add=NET_RAW \
 --cap-add=SYS_MODULE \
