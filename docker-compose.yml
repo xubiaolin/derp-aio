@@ -1,6 +1,8 @@
 services:
   derp-aio:
     image: derp-aio
+    env_file:
+      - .env
     container_name: derp-aio
     ports:
       - ${DERP_ADDR}:${DERP_ADDR}
