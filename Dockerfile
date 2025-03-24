@@ -10,25 +10,31 @@ FROM ubuntu
 ARG DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /app
+
 COPY --from=builder /go/bin/derper .
 COPY --from=builder /go/bin/tailscale .
 COPY --from=builder /go/bin/tailscaled .
 
-COPY supervisor/derper.conf /etc/supervisor/conf.d/derper.conf
-COPY supervisor/tailscaled.conf /etc/supervisor/conf.d/tailscaled.conf
+COPY start.sh .
 
 ENV DERP_CERT_MODE=manual
 ENV DERP_CERT_DIR=/app/certs
+ENV DERP_DOMAIN your-hostname.com
+ENV DERP_ADDR :443
+ENV DERP_STUN true
+ENV DERP_STUN_PORT 3478
+ENV DERP_HTTP_PORT 80
+ENV DERP_VERIFY_CLIENTS false
+ENV DERP_VERIFY_CLIENT_URL ""
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends apt-utils iptables iproute2 curl supervisor&& \
     apt-get install -y ca-certificates && \
     curl -fsSL https://tailscale.com/install.sh | sh &&\
-    mkdir /app/certs
+    mkdir -p /app/certs
 
-RUN echo '#!/bin/sh\n\
-    rm -f /var/run/supervisor.sock\n\
-    exec supervisord -c /etc/supervisor/supervisord.conf' > /app/start.sh && \
-    chmod +x /app/start.sh
+COPY supervisor/derper.conf /etc/supervisor/conf.d/derper.conf
+COPY supervisor/tailscaled.conf /etc/supervisor/conf.d/tailscaled.conf
 
-CMD ["sh", "/app/start.sh"]
+# CMD ["supervisord", "-c", "/etc/supervisor/supervisord.conf", "-n"]
+CMD ["/app/start.sh"]
