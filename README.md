@@ -86,7 +86,6 @@ docker-compose up -d
 如果您在使用过程中遇到任何问题，请创建 Issue 或通过以下方式联系我们：
 
 - GitHub Issues
-- 电子邮件：[your-email@example.com]
 
 ## 致谢
 
