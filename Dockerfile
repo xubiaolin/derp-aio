@@ -26,4 +26,9 @@ RUN apt-get update && \
     curl -fsSL https://tailscale.com/install.sh | sh &&\
     mkdir /app/certs
 
-CMD ["supervisord", "-c", "/etc/supervisor/supervisord.conf"]
+RUN echo '#!/bin/sh\n\
+    rm -f /var/run/supervisor.sock\n\
+    exec supervisord -c /etc/supervisor/supervisord.conf' > /app/start.sh && \
+    chmod +x /app/start.sh
+
+CMD ["sh", "/app/start.sh"]
