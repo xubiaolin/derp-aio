@@ -1,3 +1,5 @@
 .vscode
 .env
 tailscale_data
+log/
+certs/
