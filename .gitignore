@@ -1,5 +1,5 @@
 .vscode
 .env
-tailscale_data
+ts_data/
 log/
 certs/
