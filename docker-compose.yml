@@ -4,6 +4,7 @@ services:
     env_file:
       - .env
     container_name: derp-aio
+    hostname: derp.${DERP_DOMAIN}
     ports:
       - ${DERP_ADDR}:${DERP_ADDR}
       - ${DERP_STUN_PORT}:${DERP_STUN_PORT}
