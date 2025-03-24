@@ -1,6 +1,6 @@
 services:
   derp-aio:
-    image: derp-aio
+    image: xubiaolin/derp-aio:latest
     env_file:
       - .env
     container_name: derp-aio
