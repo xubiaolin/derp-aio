@@ -19,13 +19,13 @@ COPY start.sh .
 
 ENV DERP_CERT_MODE=manual
 ENV DERP_CERT_DIR=/app/certs
-ENV DERP_DOMAIN your-hostname.com
-ENV DERP_ADDR :443
-ENV DERP_STUN true
-ENV DERP_STUN_PORT 3478
-ENV DERP_HTTP_PORT 80
-ENV DERP_VERIFY_CLIENTS false
-ENV DERP_VERIFY_CLIENT_URL ""
+ENV DERP_DOMAIN=derp.example.com
+ENV DERP_ADDR=:18443
+ENV DERP_STUN=19302
+ENV DERP_STUN_PORT=443
+ENV DERP_HTTP_PORT=80
+ENV DERP_VERIFY_CLIENTS=false
+ENV DERP_VERIFY_CLIENT_URL=""
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends apt-utils iptables iproute2 curl supervisor&& \
