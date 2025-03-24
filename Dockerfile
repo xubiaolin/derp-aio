@@ -36,5 +36,4 @@ RUN apt-get update && \
 COPY supervisor/derper.conf /etc/supervisor/conf.d/derper.conf
 COPY supervisor/tailscaled.conf /etc/supervisor/conf.d/tailscaled.conf
 
-# CMD ["supervisord", "-c", "/etc/supervisor/supervisord.conf", "-n"]
-CMD ["/app/start.sh"]
+CMD ["supervisord", "-c", "/etc/supervisor/supervisord.conf", "-n"]
