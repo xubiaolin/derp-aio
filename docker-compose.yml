@@ -12,6 +12,7 @@ services:
     volumes:
       - /dev/net/tun:/dev/net/tun
       - ./ts_data:/var/lib/tailscale
+      - ./derp_data:/var/lib/derper
       - ./log/derper:/var/log/derper
       - ./log/tailscaled:/var/log/tailscaled
       - ${CERT_PATH}/${DERP_DOMAIN}.key:/app/certs/${DERP_DOMAIN}.key
