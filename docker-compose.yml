@@ -7,8 +7,8 @@ services:
       - ./ts_data:/var/lib/tailscale
       - ./log/derper:/var/log/derper
       - ./log/tailscaled:/var/log/tailscaled
-      - /path/to/your-domain.com.key:/app/certs/your-domain.com.key
-      - /path/to/your-domain.com.crt:/app/certs/your-domain.com.crt
+      - ${CERT_PATH}/${DERP_DOMAIN}.key:/app/certs/${DERP_DOMAIN}.key
+      - ${CERT_PATH}/${DERP_DOMAIN}.crt:/app/certs/${DERP_DOMAIN}.crt
     cap_add:
       - NET_ADMIN
       - NET_RAW
