@@ -15,8 +15,7 @@ services:
       - ./derp_data:/var/lib/derper
       - ./log/derper:/var/log/derper
       - ./log/tailscaled:/var/log/tailscaled
-      - ${CERT_PATH}/${DERP_DOMAIN}.key:/app/certs/${DERP_DOMAIN}.key
-      - ${CERT_PATH}/${DERP_DOMAIN}.crt:/app/certs/${DERP_DOMAIN}.crt
+      - ${CERT_PATH}:/app/certs
     cap_add:
       - NET_ADMIN
       - NET_RAW

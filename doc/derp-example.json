@@ -13,7 +13,8 @@
                         "HostName": "derp-moyu.nb2.markxu.vip",
                         "DERPPort": 18443,
                         "IPv4": "110.42.99.46",
-                        "STUNPort": 13478
+                        "STUNPort": 13478,
+                        
                     }
                 ]
             }
