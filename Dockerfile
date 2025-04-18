@@ -2,7 +2,7 @@ FROM golang:alpine AS builder
 WORKDIR /app
 
 ARG DERP_VERSION=latest
-RUN apk add --no-cache curl grep && \
+RUN apk add --no-cache curl grep git && \
     echo "Using DERP version: $DERP_VERSION" && \
     go install tailscale.com/cmd/derper@${DERP_VERSION} && \
     go install tailscale.com/cmd/tailscale@${DERP_VERSION} && \
