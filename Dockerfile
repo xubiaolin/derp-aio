@@ -4,9 +4,9 @@ WORKDIR /app
 ARG DERP_VERSION=latest
 RUN apk add --no-cache curl grep git && \
     echo "Using DERP version: $DERP_VERSION" && \
-    go install tailscale.com/cmd/derper@${DERP_VERSION#v} && \
-    go install tailscale.com/cmd/tailscale@${DERP_VERSION#v} && \
-    go install tailscale.com/cmd/tailscaled@${DERP_VERSION#v}
+    go install tailscale.com/cmd/derper@${DERP_VERSION} && \
+    go install tailscale.com/cmd/tailscale@${DERP_VERSION} && \
+    go install tailscale.com/cmd/tailscaled@${DERP_VERSION}
 
 FROM ubuntu
 ARG DEBIAN_FRONTEND=noninteractive
